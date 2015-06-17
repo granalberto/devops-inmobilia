@@ -1,0 +1,40 @@
+Pasos para la contrucción del paquete Debian:
+
+- Llega un correo desde GitLab a servidor DevOps.
+
+- procmail chequea algunas características del correo; si se cumplen
+  las características necesarias, ejecuta un script que invoca un "git
+  pull" en el repositorio.
+
+- Al culminar el "git pull", se ejecuta el script post-merge, que a su
+  vez invoca un script que genera el paquete y actualiza el
+  repositorio.
+
+Requisitos:
+
+- Estructura de directorios:
+
+  - $HOME/devops --> Base de operaciones
+
+  - $HOME/devops/$PROJECT/$PROJECT --> Repo Git
+
+  - $HOME/devops/PROJECT/debian --> Debian related work
+
+  - $HOME/devops/$PROJECT/debian/source --> Estructura Debian del
+    paquete. Código libre de metadata git.
+
+  - $HOME/devops/$PROJECT/debian/source/DEBIAN --> Archivos de control
+    del paquete
+
+  - $HOME/devops/$PROJECT/debian/repo --> Raíz del Repo
+
+- Software:
+
+  - dpkg
+
+  - gtar (y las otras que requiera)
+
+- Configuración:
+
+  - git pull sin que pida credenciales.
+

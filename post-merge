@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# Build Debian Package
+
+for i in "inmobilia"; do
+
+$HOME/devops/buildpkg.sh $i
+
+done
+
+# Build FreeBSD Package
+
