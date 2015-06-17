@@ -6,9 +6,9 @@ LOGDIR=$GITDIR/../log
 SRC=$GITDIR/../debian/source
 DEBIAN=$HOME/debian
 REPO=$DEBIAN/repo
-STABLE=$REPO/dists/stable
-TESTING=$REPO/dists/testing
-UNSTABLE=$REPO/dists/unstable
+STABLE=$REPO/dists/stable/non-free/binary-amd64
+TESTING=$REPO/dists/testing/non-free/binary-amd64
+UNSTABLE=$REPO/dists/unstable/non-free/binary-amd64
 GIT="git -C $GITDIR"
 
 mkdir -p $SRC $LOGDIR $STABLE $TESTING $UNSTABLE
