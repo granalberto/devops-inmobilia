@@ -59,7 +59,7 @@ makedeb () {
 
 
 update_stable () {
-    dpkg-scanpackages $REPO | gzip -9c > $STABLE/Packages.gz
+    dpkg-scanpackages $REPO | sed 's-/home/amijares/debian/repo/--' | gzip -9c > $STABLE/Packages.gz
 }
 
 
