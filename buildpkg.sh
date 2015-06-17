@@ -1,17 +1,17 @@
 #!/bin/sh
 
 PROJECT=$1
-LOGDIR=$PWD/log
-GITDIR=$PROJECT/$PROJECT
-SRC=$PROJECT/debian/source
-DEBIAN=$PROJECT/debian
+GITDIR=../..
+LOGDIR=$GITDIR/../log
+SRC=$GITDIR/../debian/source
+DEBIAN=$GITDIR/../debian
 REPO=$DEBIAN/repo
 STABLE=$REPO/dists/stable
 TESTING=$REPO/dists/testing
 UNSTABLE=$REPO/dists/unstable
 GIT="git -C $GITDIR"
 
-mkdir -p $SRC $STABLE $TESTING $UNSTABLE
+mkdir -p $SRC $LOGDIR $STABLE $TESTING $UNSTABLE
 
 [ ! -x /usr/local/bin/git ] && (echo "Debe instalar Git"; exit 1)
 
@@ -63,7 +63,7 @@ update_stable () {
 }
 
 
-debian () {
+debian_stable () {
     log "Iniciando creacion de Paquete Debian"
     clean_source || log "No pude limpiar"
     log "Ya esta limpio"
@@ -73,8 +73,8 @@ debian () {
     log "Control Creado"
     makedeb || log "No pude construir"
     log "Paquete creado"
-    update_repo
+    update_stable
     log "Repo actualizado"
 }
 
-debian
+debian_stable

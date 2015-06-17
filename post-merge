@@ -4,7 +4,7 @@
 
 for i in "inmobilia"; do
 
-$HOME/devops/buildpkg.sh $i
+../../../../buildpkg.sh $i
 
 done
 
