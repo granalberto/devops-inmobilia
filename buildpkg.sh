@@ -46,7 +46,8 @@ control () {
 Package: $PROJECT
 Version: $VERSION
 Architecture: all
-Maintainer: amijares@mcs.com.ve
+Depends: apache2, libapache2-mod-php5, php5-apcu, php5-gd, php5-json, php5-mcrypt, php5-mysql, php5-xsl, php5-fpdf, libxml2
+Maintainer: Alberto Mijares <amijares@mcs.com.ve>
 Description: Inmobilia.com website
  El Portal Inmobiliario de America Latina
  Desarrollado por: strappinc.com
